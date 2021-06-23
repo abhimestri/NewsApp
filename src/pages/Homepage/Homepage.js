@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Text } from "@chakra-ui/layout";
+import { useSelector } from "react-redux";
 
 import Navigation from "./Navigation/Navigation";
 import DateToday from "../../components/Date/TodaysDate";
@@ -16,8 +17,13 @@ import {
   SportsNews,
   PoliticalNews,
 } from "./Navigation/components/index";
+import SearchedNews from "./Navigation/components/searchedNews";
 
 const HomePage = () => {
+  const searchedList = useSelector((state) => state.searchedNewsList);
+  console.log("in home");
+  console.log(searchedList);
+  console.log("=============");
   return (
     <React.Fragment>
       <Text top="-10" left="20" position="absolute" fontSize="24px">
@@ -27,7 +33,7 @@ const HomePage = () => {
       <Navigation />
       <Switch>
         <Route path="/" exact>
-          <MainSection />
+          {searchedList ? <SearchedNews /> : <MainSection />}
         </Route>
         <Route path="/business">
           <BusinessNews />

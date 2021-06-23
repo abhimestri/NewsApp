@@ -35,7 +35,9 @@ const renderNews = (props) => {
 
   return (
     <Container margin="64" width="auto">
-      <Heading marginLeft="48">{props.heading}</Heading>
+      <Heading marginLeft="48">
+        {props.heading !== null ? props.heading : ""}
+      </Heading>
       <SimpleGrid columns={3} spacing={10}>
         {news}
       </SimpleGrid>

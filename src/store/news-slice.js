@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  politicalNewsList: null, //politics
-  technologyNewsList: null, //technology
-  sportsNewsList: null, //sports
-  healthNewsList: null, //health
-  internationalNewsList: null, //international
+  politicalNewsList: null,
+  technologyNewsList: null,
+  sportsNewsList: null,
+  healthNewsList: null,
+  internationalNewsList: null,
   businessNewsList: null,
   fashionNewsList: null,
   entertainmentNewsList: null,
   currentAffairsNewsList: null,
   economicsNewsList: null,
+  searchedNewsList: null,
 };
 
 const newsSlice = createSlice({
@@ -55,6 +56,14 @@ const newsSlice = createSlice({
     economicsNews(state, action) {
       let reslist = action.payload;
       state.economicsNewsList = reslist.filter((el) => el.image !== null);
+    },
+    searchedNews(state, action) {
+      if (action.payload === null) {
+        state.searchedNewsList = null;
+      } else {
+        let reslist = action.payload;
+        state.searchedNewsList = reslist.filter((el) => el.image !== null);
+      }
     },
   },
 });

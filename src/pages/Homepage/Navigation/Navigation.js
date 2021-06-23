@@ -1,12 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   Input,
 } from "@chakra-ui/react";
+
+import { getSearchedNews } from "../../../store/news-actions";
 const Navigation = () => {
+  const dispatch = useDispatch();
+  const inputChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(getSearchedNews(e.target.value));
+  };
+
   return (
     <Breadcrumb h="48" padding="10" bg="tomato">
       <BreadcrumbItem>
@@ -71,6 +80,7 @@ const Navigation = () => {
         mt="-8"
         border="0px solid"
         borderRadius="5px"
+        onChange={inputChangeHandler}
       />
     </Breadcrumb>
   );
