@@ -1,16 +1,28 @@
 import React from "react";
-// import { Container } from "@chakra-ui/react";
 import { Route, Switch } from "react-router-dom";
+import { Text } from "@chakra-ui/layout";
 
 import Navigation from "./Navigation/Navigation";
 import DateToday from "../../components/Date/TodaysDate";
 import MainSection from "./Main/main";
 import Footer from "./Footer/Footer";
-import BusinessNews from "./Navigation/components/businessNews";
-import TechNews from "./Navigation/components/technologyNews";
+import {
+  BusinessNews,
+  TechnologyNews,
+  FashionNews,
+  CurrentAffairsNews,
+  EconomicsNews,
+  EntertainmentNews,
+  SportsNews,
+  PoliticalNews,
+} from "./Navigation/components/index";
+
 const HomePage = () => {
   return (
     <React.Fragment>
+      <Text top="-10" left="20" position="absolute" fontSize="24px">
+        DailyUpdate
+      </Text>
       <DateToday />
       <Navigation />
       <Switch>
@@ -21,7 +33,25 @@ const HomePage = () => {
           <BusinessNews />
         </Route>
         <Route path="/technology">
-          <TechNews />
+          <TechnologyNews />
+        </Route>
+        <Route path="/fashion" exact>
+          <FashionNews />
+        </Route>
+        <Route path="/politics">
+          <PoliticalNews />
+        </Route>
+        <Route path="/entertainment">
+          <EntertainmentNews />
+        </Route>
+        <Route path="/sports">
+          <SportsNews />
+        </Route>
+        <Route path="/current-affairs">
+          <CurrentAffairsNews />
+        </Route>
+        <Route path="/economics">
+          <EconomicsNews />
         </Route>
       </Switch>
       <Footer />

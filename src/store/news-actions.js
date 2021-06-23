@@ -1,21 +1,14 @@
-import axios from "axios";
-
 import { newsActions } from "./news-slice";
-
-const URL =
-  "http://api.mediastack.com/v1/news?access_key=e67bc489865269edd5ed843d828e810e&sources=en&";
+import { useHttp } from "../Hooks/use-http";
 
 export const getPoliticalNews = () => {
   return async (dispatch) => {
-    const fetchNews = async () => {
-      const res = await axios.get(`${URL}keywords=politics`);
-      return res.data.data;
-    };
+    const fetchNews = await useHttp("politics");
     try {
-      const resData = await fetchNews();
+      const resData = await fetchNews;
       console.log(resData);
       console.log("now it will render");
-      dispatch(newsActions.politicalNews(resData));
+      return dispatch(newsActions.politicalNews(resData));
     } catch (err) {
       console.log("did'nt work");
       console.log(err.message);
@@ -25,17 +18,12 @@ export const getPoliticalNews = () => {
 
 export const getTechNews = () => {
   return async (dispatch) => {
-    const fetchNews = async () => {
-      const res = await axios.get(`${URL}keywords=technology`);
-      return res.data.data;
-    };
+    const fetchNews = await useHttp("technology");
     try {
-      const resData = await fetchNews();
+      const resData = await fetchNews;
       console.log(resData);
-      console.log("now it will render");
-      dispatch(newsActions.technologyNews(resData));
+      return dispatch(newsActions.technologyNews(resData));
     } catch (err) {
-      console.log("did'nt work");
       console.log(err.message);
     }
   };
@@ -43,13 +31,12 @@ export const getTechNews = () => {
 
 export const getSportsNews = () => {
   return async (dispatch) => {
-    const fetchNews = async () => {
-      const res = await axios.get(`${URL}keywords=sports`);
-      return res.data.data;
-    };
+    const fetchNews = await useHttp("sports");
     try {
-      const resData = await fetchNews();
-      dispatch(newsActions.sportsNews(resData));
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.sportsNews(resData));
     } catch (err) {
       console.log("did'nt work");
       console.log(err.message);
@@ -59,13 +46,12 @@ export const getSportsNews = () => {
 
 export const getHealthNews = () => {
   return async (dispatch) => {
-    const fetchNews = async () => {
-      const res = await axios.get(`${URL}keywords=health`);
-      return res.data.data;
-    };
+    const fetchNews = await useHttp("health");
     try {
-      const resData = await fetchNews();
-      dispatch(newsActions.healthNews(resData));
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.healthNews(resData));
     } catch (err) {
       console.log("did'nt work");
       console.log(err.message);
@@ -75,13 +61,12 @@ export const getHealthNews = () => {
 
 export const getInternationalNews = () => {
   return async (dispatch) => {
-    const fetchNews = async () => {
-      const res = await axios.get(`${URL}keywords=international`);
-      return res.data.data;
-    };
+    const fetchNews = await useHttp("international");
     try {
-      const resData = await fetchNews();
-      dispatch(newsActions.internationalNews(resData));
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.internationalNews(resData));
     } catch (err) {
       console.log("did'nt work");
       console.log(err.message);
@@ -91,15 +76,72 @@ export const getInternationalNews = () => {
 
 export const getBusinessNews = () => {
   return async (dispatch) => {
-    const fetchNews = async () => {
-      const res = await axios.get(`${URL}keywords=business`);
-      return res.data.data;
-    };
+    const fetchNews = await useHttp("business");
     try {
-      const resData = await fetchNews();
+      const resData = await fetchNews;
       console.log(resData);
       console.log("now it will render");
-      dispatch(newsActions.businessNews(resData));
+      return dispatch(newsActions.businessNews(resData));
+    } catch (err) {
+      console.log("did'nt work");
+      console.log(err.message);
+    }
+  };
+};
+
+export const getFashionNews = () => {
+  return async (dispatch) => {
+    const fetchNews = await useHttp("fashion");
+    try {
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.fashionNews(resData));
+    } catch (err) {
+      console.log("did'nt work");
+      console.log(err.message);
+    }
+  };
+};
+
+export const getEntertainmentNews = () => {
+  return async (dispatch) => {
+    const fetchNews = await useHttp("entertainment");
+    try {
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.entertainmentNews(resData));
+    } catch (err) {
+      console.log("did'nt work");
+      console.log(err.message);
+    }
+  };
+};
+
+export const getCurrentAffairsNews = () => {
+  return async (dispatch) => {
+    const fetchNews = await useHttp("affairs");
+    try {
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.currentAffairsNews(resData));
+    } catch (err) {
+      console.log("did'nt work");
+      console.log(err.message);
+    }
+  };
+};
+
+export const getEconomicsNews = () => {
+  return async (dispatch) => {
+    const fetchNews = await useHttp("economics");
+    try {
+      const resData = await fetchNews;
+      console.log(resData);
+      console.log("now it will render");
+      return dispatch(newsActions.economicsNews(resData));
     } catch (err) {
       console.log("did'nt work");
       console.log(err.message);

@@ -6,6 +6,10 @@ const initialState = {
   healthNewsList: null, //health
   internationalNewsList: null, //international
   businessNewsList: null,
+  fashionNewsList: null,
+  entertainmentNewsList: null,
+  currentAffairsNewsList: null,
+  economicsNewsList: null,
 };
 
 const newsSlice = createSlice({
@@ -35,6 +39,22 @@ const newsSlice = createSlice({
     businessNews(state, action) {
       let reslist = action.payload;
       state.businessNewsList = reslist.filter((el) => el.image !== null);
+    },
+    fashionNews(state, action) {
+      let reslist = action.payload;
+      state.fashionNewsList = reslist.filter((el) => el.image !== null);
+    },
+    entertainmentNews(state, action) {
+      let reslist = action.payload;
+      state.entertainmentNewsList = reslist.filter((el) => el.image !== null);
+    },
+    currentAffairsNews(state, action) {
+      let reslist = action.payload;
+      state.currentAffairsNewsList = reslist.filter((el) => el.image !== null);
+    },
+    economicsNews(state, action) {
+      let reslist = action.payload;
+      state.economicsNewsList = reslist.filter((el) => el.image !== null);
     },
   },
 });
