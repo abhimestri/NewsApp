@@ -7,9 +7,7 @@ export const getPoliticalNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.politicalNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -19,9 +17,7 @@ export const getTechNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.technologyNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -31,9 +27,7 @@ export const getSportsNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.sportsNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -43,9 +37,7 @@ export const getHealthNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.healthNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -55,9 +47,7 @@ export const getInternationalNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.internationalNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -67,9 +57,7 @@ export const getBusinessNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.businessNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -79,9 +67,7 @@ export const getFashionNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.fashionNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -91,9 +77,7 @@ export const getEntertainmentNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.entertainmentNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -103,9 +87,7 @@ export const getCurrentAffairsNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.currentAffairsNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -115,9 +97,7 @@ export const getEconomicsNews = () => {
     try {
       const resData = await fetchNews;
       return dispatch(newsActions.economicsNews(resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };
 
@@ -126,12 +106,7 @@ export const getSearchedNews = (e) => {
     const fetchNews = await useHttp(e);
     try {
       const resData = await fetchNews;
-      console.log("-----------");
-      console.log(e);
-      console.log("-----------");
       return dispatch(newsActions.searchedNews(e === "" ? null : resData));
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 };

@@ -4,8 +4,10 @@ import { useLocation } from "react-router-dom";
 
 import { getBusinessNews } from "../../../../../store/news-actions";
 import RenderNews from "../../../../../Hooks/render-news";
+import { useToast } from "@chakra-ui/react";
 
 const BusinessNews = () => {
+  const toast = useToast;
   const businessNews = useSelector((state) => state.businessNewsList);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -16,6 +18,7 @@ const BusinessNews = () => {
   return (
     <RenderNews
       newsList={businessNews}
+      toast={toast}
       heading={location.pathname === "/business" && "Business"}
     />
   );

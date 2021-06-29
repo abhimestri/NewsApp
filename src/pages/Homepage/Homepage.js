@@ -1,10 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Text } from "@chakra-ui/layout";
-import { useSelector } from "react-redux";
-
+import { Flex, Spacer, Text } from "@chakra-ui/react";
 import Navigation from "./Navigation/Navigation";
-import DateToday from "../../components/Date/TodaysDate";
 import MainSection from "./Main/main";
 import Footer from "./Footer/Footer";
 import {
@@ -16,24 +13,34 @@ import {
   EntertainmentNews,
   SportsNews,
   PoliticalNews,
+  InternationalNews,
 } from "./Navigation/components/index";
 import SearchedNews from "./Navigation/components/searchedNews";
-
+import SideDrawer from "./Navigation/container/sideDrawer";
 const HomePage = () => {
-  const searchedList = useSelector((state) => state.searchedNewsList);
-  console.log("in home");
-  console.log(searchedList);
-  console.log("=============");
+  const date = new Date();
   return (
     <React.Fragment>
-      <Text top="-10" left="20" position="absolute" fontSize="24px">
-        DailyUpdate
-      </Text>
-      <DateToday />
+      <SideDrawer />
+      <Flex>
+        <Text fontSize="28px" ml="10" mt="2">
+          DailyUpdate
+        </Text>
+        <Spacer />
+        <Text
+          fontSize="14px"
+          ml={{ base: "15", md: "0" }}
+          mr="10"
+          w="55"
+          mt="4"
+        >
+          {date.toString()}
+        </Text>
+      </Flex>
       <Navigation />
       <Switch>
         <Route path="/" exact>
-          {searchedList ? <SearchedNews /> : <MainSection />}
+          <MainSection />
         </Route>
         <Route path="/business">
           <BusinessNews />
@@ -58,6 +65,12 @@ const HomePage = () => {
         </Route>
         <Route path="/economics">
           <EconomicsNews />
+        </Route>
+        <Route path="/international">
+          <InternationalNews />
+        </Route>
+        <Route path="/searched/:id">
+          <SearchedNews />
         </Route>
       </Switch>
       <Footer />

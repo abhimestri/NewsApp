@@ -4,9 +4,7 @@ const DateToday = () => {
   const date = new Date();
   return (
     <React.Fragment>
-      <Text m="16" align="right">
-        {date.toString()}
-      </Text>
+      <Text align="right">{date.toString()}</Text>
     </React.Fragment>
   );
 };

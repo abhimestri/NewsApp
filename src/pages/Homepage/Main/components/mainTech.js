@@ -1,14 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Box,
-  Container,
-  Grid,
-  Text,
-  GridItem,
-  Heading,
-  Center,
-} from "@chakra-ui/react";
+import { Box, Grid, Text, GridItem, Heading, Center } from "@chakra-ui/react";
 
 import { getTechNews } from "../../../../store/news-actions";
 
@@ -20,23 +12,22 @@ const MainTech = () => {
   }, [dispatch]);
 
   return (
-    <Container marginTop="96" h="1000px">
-      <Heading marginLeft="48">Science and Technology</Heading>
-      <Grid
-        h="500px"
-        w="3xl"
-        templateRows="repeat(1, 1fr)"
-        templateColumns="repeat(1, 1fr)"
-        gap={6}
-        marginLeft="48"
-        marginRight="48"
-      >
+    <React.Fragment>
+      <Heading marginLeft={{ base: "22", md: "32" }} mt="36">
+        Science and Technology
+      </Heading>
+      <Grid h="auto">
         <GridItem>
-          <Grid templateColumns="repeat(2, 1fr)">
+          <Grid
+            gap={12}
+            mr="8"
+            ml="8"
+            templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+          >
             <Box height="250px" margin="18">
               <Box
                 overflow="scroll"
-                height="180px"
+                height="240px"
                 backgroundImage={technologyNews && technologyNews[0].image}
                 backgroundPosition="center"
                 backgroundSize="cover"
@@ -51,7 +42,7 @@ const MainTech = () => {
             <Box height="250px" margin="18">
               <Box
                 overflow="scroll"
-                height="180px"
+                height="240px"
                 backgroundImage={technologyNews && technologyNews[1].image}
                 backgroundPosition="center"
                 backgroundSize="cover"
@@ -66,7 +57,7 @@ const MainTech = () => {
             <Box height="250px" margin="18">
               <Box
                 overflow="scroll"
-                height="180px"
+                height="240px"
                 backgroundImage={technologyNews && technologyNews[2].image}
                 backgroundPosition="center"
                 backgroundSize="cover"
@@ -81,7 +72,7 @@ const MainTech = () => {
             <Box height="250px" margin="18">
               <Box
                 overflow="scroll"
-                height="180px"
+                height="240px"
                 backgroundImage={technologyNews && technologyNews[3].image}
                 backgroundPosition="center"
                 backgroundSize="cover"
@@ -96,7 +87,7 @@ const MainTech = () => {
             <Box height="250px" margin="18">
               <Box
                 overflow="scroll"
-                height="180px"
+                height="240px"
                 backgroundImage={technologyNews && technologyNews[4].image}
                 backgroundPosition="center"
                 backgroundSize="cover"
@@ -108,10 +99,10 @@ const MainTech = () => {
                 </Text>
               </Center>
             </Box>
-            <Box height="250px" margin="18">
+            <Box height="250px" margin="18" mb="20">
               <Box
                 overflow="scroll"
-                height="180px"
+                height="240px"
                 backgroundImage={technologyNews && technologyNews[5].image}
                 backgroundPosition="center"
                 backgroundSize="cover"
@@ -126,7 +117,7 @@ const MainTech = () => {
           </Grid>
         </GridItem>
       </Grid>
-    </Container>
+    </React.Fragment>
   );
 };
 

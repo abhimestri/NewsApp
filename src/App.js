@@ -1,12 +1,14 @@
 import React from "react";
 import Homepage from "./pages/Homepage/Homepage";
+import { ChakraProvider } from "@chakra-ui/react";
 function App() {
   return (
     <React.Fragment>
-      <Homepage />
+      <ChakraProvider>
+        <Homepage />
+      </ChakraProvider>
     </React.Fragment>
   );
 }
 
 export default App;
-//http://api.mediastack.com/v1/news?access_key=e67bc489865269edd5ed843d828e810e&sources=en&keywords=entertainment

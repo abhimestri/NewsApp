@@ -6,6 +6,7 @@ import FashionNews from "./fashionNews";
 import PoliticalNews from "./politicsNews";
 import SportsNews from "./sportsNews";
 import TechnologyNews from "./technologyNews";
+import InternationalNews from "./internationalNews";
 
 export {
   BusinessNews,
@@ -16,4 +17,5 @@ export {
   PoliticalNews,
   SportsNews,
   TechnologyNews,
+  InternationalNews,
 };
