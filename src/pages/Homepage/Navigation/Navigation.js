@@ -16,6 +16,7 @@ const Navigation = () => {
       dispatch(getSearchedNews(searchRef.current.value));
       history.push(`/searched/${searchRef.current.value}`);
     }
+    searchRef.current.value = "";
   };
 
   return (

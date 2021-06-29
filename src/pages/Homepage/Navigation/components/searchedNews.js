@@ -1,4 +1,5 @@
 import { Center, Text } from "@chakra-ui/layout";
+import { Spinner } from "@chakra-ui/spinner";
 import React from "react";
 import { useSelector } from "react-redux";
 import RenderNews from "../../../../Hooks/render-news";
@@ -18,9 +19,7 @@ const SearchedNews = () => {
   } else {
     return (
       <Center>
-        <Text fontSize="32px">
-          Can't proceed, PLEASE TRY SEARCHING or try again later
-        </Text>
+        <Spinner size="lg" />
       </Center>
     );
   }
